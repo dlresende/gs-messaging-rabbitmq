@@ -26,6 +26,7 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-amqp")
+    compile("org.springframework.boot:spring-boot-starter-cloud-connectors")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
