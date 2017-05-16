@@ -10,29 +10,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Runner implements CommandLineRunner {
 
-    private final RabbitTemplate rabbitTemplate;
-    private final Receiver receiver;
-    private final ConfigurableApplicationContext context;
-
-    public Runner(Receiver receiver, RabbitTemplate rabbitTemplate,
-            ConfigurableApplicationContext context) {
-        this.receiver = receiver;
-        this.rabbitTemplate = rabbitTemplate;
-        this.context = context;
-    }
-
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Sending message...");
-        try {
-            while(true) {
-                rabbitTemplate.convertAndSend(Application.queueName, "Hello from RabbitMQ!");
-                receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
-                Thread.sleep(2000L);
-            }
-        } finally {
-            context.close();
-        }
+        System.out.println("Joining thread, you can press Ctrl+C to shutdown application");
+        Thread.currentThread().join();
     }
 
 }
+
