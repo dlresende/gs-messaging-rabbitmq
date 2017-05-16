@@ -6,3 +6,6 @@ Run locally:
 
 Deploy to CF:
 `cf push`
+
+Reconfigure CF health check:
+`cf set-health-check gs-messaging-rabbitmq process`
