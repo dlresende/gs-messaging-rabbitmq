@@ -6,3 +6,4 @@ applications:
   path: target/gs-messaging-rabbitmq-0.1.0.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   stack: cflinuxfs2
+  health-check-type: process
