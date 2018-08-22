@@ -22,7 +22,7 @@ public class SendScheduler {
         this.context = context;
     }
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 1000)
     public void publishMessage() throws Exception {
         rabbitTemplate.convertAndSend(Application.queueName, "Hello from RabbitMQ!");
         receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
